@@ -1,0 +1,25 @@
+# ===================================================================
+# Student Management System - Application Configuration Template
+# ===================================================================
+# Instructions:
+# 1. Copy this file to 'application.properties' in this directory.
+# 2. Update the property values or configure them as environment variables.
+# 3. DO NOT commit 'application.properties' with sensitive credentials to GitHub.
+# ===================================================================
+
+# Database Configuration (MySQL)
+spring.datasource.url=${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/studentsdb}
+spring.datasource.username=${SPRING_DATASOURCE_USERNAME:root}
+spring.datasource.password=${SPRING_DATASOURCE_PASSWORD:your_database_password}
+
+# Hibernate / JPA Settings
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+# JWT Authentication Secret (Must be a secure 256-bit or longer key)
+jwt.secret=${JWT_SECRET:YOUR_SECURE_RANDOM_256_BIT_JWT_SECRET_KEY_HERE_FOR_SECURITY}
+
+# Razorpay Payment Gateway Credentials (Obtain from https://dashboard.razorpay.com)
+razorpay.key.id=${RAZORPAY_KEY_ID:rzp_test_YOUR_KEY_ID}
+razorpay.key.secret=${RAZORPAY_KEY_SECRET:YOUR_KEY_SECRET}
