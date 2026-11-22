@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class PaymentService {
@@ -25,6 +26,7 @@ public class PaymentService {
     @Value("${razorpay.key.secret}")
     private String razorpaySecret;
 
+    @Transactional(rollbackFor = Exception.class)
     public Order createOrder(Long studentId, Long courseId, Double amount)
             throws Exception {
 

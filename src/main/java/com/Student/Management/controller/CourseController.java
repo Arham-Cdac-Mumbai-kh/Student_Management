@@ -3,6 +3,7 @@ package com.Student.Management.controller;
 import com.Student.Management.entity.Course;
 import com.Student.Management.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,9 +25,9 @@ public class CourseController {
     @DeleteMapping("/delete/{id}")
     public org.springframework.http.ResponseEntity<Void> deleteCourse(@PathVariable Long id) {
         if (!courseRepository.existsById(id)) {
-            return org.springframework.http.ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build();
         }
         courseRepository.deleteById(id);
-        return org.springframework.http.ResponseEntity.noContent().build();
+        return ResponseEntity.noContent().build();
     }
 }

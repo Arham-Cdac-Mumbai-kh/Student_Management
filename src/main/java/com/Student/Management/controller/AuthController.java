@@ -5,8 +5,10 @@ import com.Student.Management.entity.User;
 import com.Student.Management.service.JwtService;
 import com.Student.Management.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +41,7 @@ public class AuthController {
 
     @PostMapping("/logout")
     public org.springframework.http.ResponseEntity<String> logout(jakarta.servlet.http.HttpServletRequest request) {
-        org.springframework.security.core.context.SecurityContextHolder.clearContext();
-        return org.springframework.http.ResponseEntity.ok("Logged out successfully");
+        SecurityContextHolder.clearContext();
+        return ResponseEntity.ok("Logged out successfully");
     }
 }
